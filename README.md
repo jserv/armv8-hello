@@ -1,4 +1,4 @@
-Hello World for bare metal ARM using QEMU
+Hello World for bare metal ARMv8 using QEMU
 
 Prerequisites
 -------------
