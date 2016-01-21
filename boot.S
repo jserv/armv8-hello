@@ -16,7 +16,6 @@ _start:
 	mrs x0, mpidr_el1
 	tst x0, #15
 	b.ne    other_cpu
-	b.eq	boot_cpu
 
 boot_cpu:
 	/* configure stack */
