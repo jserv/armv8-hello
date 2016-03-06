@@ -14,14 +14,29 @@ Step 1:
 $ cd armv8-hello
 $ git clone https://github.com/qemu/qemu.git
 ```
-open a file(qemu/hw/arm/virt.c) and modify code 
-from
+modify code in a file(qemu/hw/arm/virt.c). The result using diff is as the following:
 ```
-object_property_set_bool(cpuobj, true,"start-powered-off", NULL);
-```
-to
-```
-object_property_set_bool(cpuobj, false,"start-powered-off", NULL);
+*** a/virt.c	2016-03-06 11:02:49.987615129 -0800
+--- b/virt.c	2016-03-06 11:03:03.509277000 -0800
+***************
+*** 1210,1216 ****
+  
+              /* Secondary CPUs start in PSCI powered-down state */
+              if (n > 0) {
+!                 object_property_set_bool(cpuobj, true,
+                                           "start-powered-off", NULL);
+              }
+          }
+--- 1210,1216 ----
+  
+              /* Secondary CPUs start in PSCI powered-down state */
+              if (n > 0) {
+!                 object_property_set_bool(cpuobj, false,
+                                           "start-powered-off", NULL);
+              }
+          }
+
+
 ```
 
 Note that:
