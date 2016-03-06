@@ -18,11 +18,11 @@ _start:
 	b.ne    other_cpu
 
 boot_cpu:
+	b boot_cpu
+
+other_cpu:
 	/* configure stack */
 	adrp x0, stacktop
 	mov sp, x0
 
 	b main
-
-other_cpu:
-	b other_cpu
