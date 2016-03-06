@@ -38,6 +38,7 @@ Building and Verification
 -------------------------
 * Changes the current working directory to the specified one and then
 ```
+$ export PATH=./qemu/aarch64-softmmu/:$PATH
 $ make
 $ make qemu
 ```

@@ -23,10 +23,10 @@ $(IMAGE): kernel.ld boot.o $(OBJS)
 	$(OBJDUMP) -t kernel.elf | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$$/d' > kernel.sym
 
 qemu: $(IMAGE)
-	@./qemu/aarch64-softmmu/qemu-system-aarch64 -M ? | grep virt >/dev/null || exit
+	@qemu-system-aarch64 -M ? | grep virt >/dev/null || exit
 	@echo "Press Ctrl-A and then X to exit QEMU"
 	@echo
-	./qemu/aarch64-softmmu/qemu-system-aarch64 -machine virt -cpu cortex-a57 \
+	qemu-system-aarch64 -machine virt -cpu cortex-a57 \
 	                    -smp 4 -m 4096 \
 			    -nographic -serial mon:stdio \
 	                    -kernel $(IMAGE)
