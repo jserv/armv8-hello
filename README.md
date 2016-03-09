@@ -40,7 +40,7 @@ modify code in a file(qemu/hw/arm/virt.c). The result using diff is as the follo
 ```
 
 Note that:
-Qemu develops design secondary CPUs in PSCI power-down state depending on PSCI firmare API. Howerver, ARM develops do not support any instructions for secondary CPUs from the power-down state to the power-on state. Therefore, we modify code as above.
+Qemu develops design secondary CPUs in PSCI power-down state depending on PSCI firmare API. Howerver, ARM develops do not support any instructions in GICv2 for secondary CPUs from the power-down state to the power-on state. Therefore, we modify code as above.
 
 Step 2:
 ```
