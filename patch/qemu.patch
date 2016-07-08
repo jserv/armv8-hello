@@ -1,0 +1,11 @@
+--- a/virt.c	2016-03-06 11:02:49.987615129 -0800
++++ b/virt.c	2016-03-06 11:03:03.509277000 -0800
+@@ -1210,7 +1210,7 @@
+ 
+             /* Secondary CPUs start in PSCI powered-down state */
+             if (n > 0) {
+-                object_property_set_bool(cpuobj, true,
++                object_property_set_bool(cpuobj, false,
+                                          "start-powered-off", NULL);
+             }
+         }

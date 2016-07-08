@@ -26,7 +26,7 @@ qemu: $(IMAGE)
 	@qemu-system-aarch64 -M ? | grep virt >/dev/null || exit
 	@echo "Press Ctrl-A and then X to exit QEMU"
 	@echo
-	qemu-system-aarch64 -machine virt -cpu cortex-a57 \
+	qemu-system-aarch64 -machine virt,gic-version=2 -cpu cortex-a57 \
 	                    -smp 4 -m 4096 \
 			    -nographic -serial mon:stdio \
 	                    -kernel $(IMAGE)

@@ -12,5 +12,13 @@ SECTIONS
 	.bss : { *(.bss) }
 
 	. = STACKTOP;
-	stacktop = .;
+	.el1_stack :
+	{
+		PROVIDE(stackstart = .);
+		. = . + 4096 * 4;
+		. = ALIGN(8);
+		PROVIDE(stackend = .);
+	}
+	
+	
 }
